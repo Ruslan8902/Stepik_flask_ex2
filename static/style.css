@@ -1,0 +1,66 @@
+.compass{
+    max-width: 100px;
+    max-height: 100px;
+    margin: auto 10px;
+}
+
+.map{
+    max-width: 300px;
+}
+
+.map_compass{
+    display: flex;
+    margin:auto;
+}
+
+.entry_form{
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+    justify-content: space-evenly;
+    max-width: 500px;
+}
+
+.frame{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    min-height: 700px;
+    justify-content: space-evenly;
+}
+
+h1{
+    text-align: center;
+}
+.game_form{
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    justify-content: space-evenly;
+    max-width: 500px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+}
+.frame a{
+    display: block;
+}
+
+.player_name{
+    display: box;
+    margin:auto;
+    text-align: center;
+}
+
+td{
+    text-align: center;
+}

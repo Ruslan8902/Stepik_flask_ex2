@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <div class="frame">
+        <a class="btn btn-primary" href="{{ url_for('index') }}">На главную</a>
+        <h1 class="player_name">Имя игрока: {{ username }}</h1>
+        <div class="map_compass">
+            <table class="table compass table-bordered">
+                 {% set compass=[[None,"С", None],["З","+", "В"],[None,"Ю", None]] %}
+                 {% for i in compass %}
+                    <tr>
+                        {% for j in i %}
+                            {% if j in ["С", "З", "В","Ю"]%}
+                                <td>{{ j }}</td>
+                            {% elif j == "+" %}
+                                <td>{{ j }}</td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <table class="table map table-bordered">
+                <tr>
+                    <th colspan="3">Карта здания</th>
+                </tr>
+                {% for i in map %}
+                    <tr>
+                        {% for j in i %}
+                            {% if j != None %}
+                                <td>{{ j }}</td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <form action="/game" method="post" class="game_form">
+            {{ form.csrf_token }}
+
+            {{ form.direction.label }}
+            {{ form.direction }}
+            {% for error in form.direction.errors %}
+                {{ error }}
+            {% endfor %}
+
+            {{ form.steps_q.label }}
+            {{ form.steps_q }}
+            {% for error in form.steps_q.errors %}
+                {{ error }}
+            {% endfor %}
+
+            {{ form.submit(class_="btn btn-secondary") }}
+        </form>
+        <div class="{{ message_class }}"> {{ message|safe }} </div>
+    </div>
+{% endblock %}
